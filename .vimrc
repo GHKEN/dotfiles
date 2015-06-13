@@ -60,10 +60,10 @@ filetype off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-"NeoBundle自体をvimで管理する場合はNeoBundleFetchを使うらしい
+call neobundle#begin(expand('~/.vim/bundle/'))
+
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "カラースキーム
@@ -77,46 +77,37 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 
-colorscheme hybrid
-
 "直感的なインターフェースを提供してくれるらしい
 NeoBundle 'Shougo/unite.vim'
-
 "ファイラー
 NeoBundle 'Shougo/vimfiler'
-
 "カラースキーム一覧表示
 NeoBundle 'ujihisa/unite-colorscheme'
-
 "カラーコードをハイライト
 NeoBundle 'lilydjwg/colorizer'
-
 "agをvimでも使えるように"
 NeoBundle 'rking/ag.vim'
-
 "git
 NeoBundle 'tpope/vim-fugitive'
-
 "ステータスバーをおしゃれに
 NeoBundle 'Lokaltog/vim-powerline'
-
 "coffee
 NeoBundle 'kchmck/vim-coffee-script'
-
 "Hack
 NeoBundle 'hhvm/vim-hack'
-
 "Go
 NeoBundle 'fatih/vim-go'
-
 "cjsx
 NeoBundle 'mtscout6/vim-cjsx'
-
 "gtags
 NeoBundle 'vim-scripts/gtags.vim'
-
 "入力補完
 NeoBundle 'Shougo/neocomplcache'
+
+call neobundle#end()
+
+colorscheme hybrid
+
 "neocomplecacheを自動起動
 let g:neocomplcache_enable_at_startup = 1
 "候補が一つでも補完ウィンドウを表示
