@@ -1,3 +1,4 @@
 /.vim/bundle/
+!/.vim/bundle/neobundle.vim
 .netrwhist
 /.zsh/.zshrc_local
