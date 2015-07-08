@@ -1,3 +1,6 @@
+"vimはshellがPOSIX互換であることを期待しているらしい
+set shell=/bin/sh
+
 "エンコードの設定
 set encoding=utf-8
 set fencs=utf-8,euc-jp,sjis
