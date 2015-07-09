@@ -4,3 +4,5 @@ setenv LS_COLORS "ow=00"
 
 alias ggpull='git pull origin '(git_current_branch)
 alias ggpush='git push origin '(git_current_branch)
+
+source ~/.config/fish/local.fish
