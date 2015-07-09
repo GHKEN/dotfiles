@@ -1,8 +1,8 @@
 function git_prompt
-    set st (git status -s 2>&1)
-    if test (echo $st | grep 'Not a git repository')
+    if test -z (git rev-parse --git-dir 2> /dev/null)
         echo ''
         return
     end
+    set st (git status -s)
     echo (set_color 0d0)'('(git_current_branch)') '
 end
