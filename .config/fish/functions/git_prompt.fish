@@ -4,5 +4,5 @@ function git_prompt
         echo ''
         return
     end
-    echo (set_color 0d0)'('(git_current_branch)')'
+    echo (set_color 0d0)'('(git_current_branch)') '
 end

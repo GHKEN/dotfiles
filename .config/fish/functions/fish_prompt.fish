@@ -12,7 +12,7 @@ function fish_prompt
         echo -n $gp
     end
     #時間
-    echo -n (set_color 888)' ['(date +%X)'] '
+    echo -n (set_color 888)'['(date +%X)'] '
     echo ''
     echo (set_color 888)'> '
 end
