@@ -8,6 +8,4 @@ alias ggpush='git push origin (git_current_branch)'
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
 
-for setting in (cat ~/.config/fish/local.fish)
-    eval $setting
-end
+source ~/.config/fish/local.fish
