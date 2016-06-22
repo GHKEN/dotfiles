@@ -117,11 +117,11 @@ let g:neocomplcache_enable_at_startup = 1
 set completeopt=menuone
 "大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_smart_case = 1
+"php用の辞書ファイルを読み込む
+let g:neocomplcache_dictionary_filetype_lists = {'php' : '.vim/dict/php.dict'}
 "タブで補完候補の選択を行う
 inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
-"php用の辞書ファイルを読み込む
-set dictionary=".vim/dict/php.dict"
 
 filetype plugin indent on
 filetype indent on
