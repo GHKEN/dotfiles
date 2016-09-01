@@ -27,9 +27,18 @@ setopt auto_pushd
 setopt auto_cd
 
 #alias
-alias ls="ls --color"
-alias la="ls -lah --color"
-alias ll="ls -lh --color"
+case ${OSTYPE} in
+    darwin*)
+        alias ls="ls -G"
+        alias la="ls -lahG"
+        alias ll="ls -lhG"
+        ;;
+    linux*)
+        alias ls="ls --color"
+        alias la="ls -lah --color"
+        alias ll="ls -lh --color"
+        ;;
+esac
 
 alias -g ...="../../"
 alias -g ....="../../../"
@@ -51,15 +60,15 @@ function git-current-branch()
     echo `git branch 2> /dev/null | awk '{print $2}'`
 }
 
-precmd()
+function precmd()
 {
-vcs_info
-PROMPT=$MAINPROMPT"${vcs_info_msg_0_}"
-PROMPT="$PROMPT %F{245}[%D{%T}]%f
+    vcs_info
+    PROMPT=$MAINPROMPT"${vcs_info_msg_0_}"
+    PROMPT="$PROMPT %F{245}[%D{%T}]%f
 %F{245}>%f "
 
-alias ggpull="git pull --rebase origin `git-current-branch`"
-alias ggpush="git push origin `git-current-branch`"
+    alias ggpull="git pull --rebase origin `git-current-branch`"
+    alias ggpush="git push origin `git-current-branch`"
 }
 
 #マシンごとの設定
