@@ -1,9 +1,6 @@
 #言語
 export LANG=ja_JP.UTF-8
 
-export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
-
 #256色ターミナル
 export TERM=xterm-256color
 
@@ -64,9 +61,6 @@ PROMPT="$PROMPT %F{245}[%D{%T}]%f
 alias ggpull="git pull --rebase origin `git-current-branch`"
 alias ggpush="git push origin `git-current-branch`"
 }
-
-#peco
-source ~/.zsh/peco.zsh
 
 #マシンごとの設定
 [ -f ~/.zsh/.zshrc_local ] && source ~/.zsh/.zshrc_local ]
