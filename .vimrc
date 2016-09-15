@@ -94,14 +94,6 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
 "ステータスバーをおしゃれに
 NeoBundle 'Lokaltog/vim-powerline'
-"coffee
-NeoBundle 'kchmck/vim-coffee-script'
-"Hack
-NeoBundle 'hhvm/vim-hack'
-"Go
-NeoBundle 'fatih/vim-go'
-"cjsx
-NeoBundle 'mtscout6/vim-cjsx'
 "gtags
 NeoBundle 'vim-scripts/gtags.vim'
 "入力補完
