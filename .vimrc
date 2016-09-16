@@ -1,6 +1,9 @@
 "vimはshellがPOSIX互換であることを期待しているらしい
 set shell=/bin/sh
 
+"黒背景
+set background=dark
+
 "エンコードの設定
 set encoding=utf-8
 set fencs=utf-8,euc-jp,sjis
@@ -58,48 +61,26 @@ set ambiwidth=double
 "閉じカッコ入力時に対応するカッコを強調表示
 set showmatch
 
-"NeoBundle
-filetype off
-
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
+if &compatible
+    set nocompatible
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=~/.vim/dein
+let s:dein_dir = expand('~/.cache/dein')
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#begin(s:dein_dir)
+call dein#add('Shougo/dein.vim')
+call dein#add('Lokaltog/vim-powerline')
+call dein#add('Shougo/neocomplcache')
+call dein#add('vim-scripts/gtags.vim')
+call dein#add('tpope/vim-fugitive')
+call dein#add('w0ng/vim-hybrid')
+call dein#end()
 
-"カラースキーム
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-scripts/Wombat'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/rdark'
-
-"直感的なインターフェースを提供してくれるらしい
-NeoBundle 'Shougo/unite.vim'
-"ファイラー
-NeoBundle 'Shougo/vimfiler'
-"カラースキーム一覧表示
-NeoBundle 'ujihisa/unite-colorscheme'
-"カラーコードをハイライト
-NeoBundle 'lilydjwg/colorizer'
-"agをvimでも使えるように"
-NeoBundle 'rking/ag.vim'
-"git
-NeoBundle 'tpope/vim-fugitive'
-"ステータスバーをおしゃれに
-NeoBundle 'Lokaltog/vim-powerline'
-"gtags
-NeoBundle 'vim-scripts/gtags.vim'
-"入力補完
-NeoBundle 'Shougo/neocomplcache'
-
-call neobundle#end()
+if dein#check_install()
+    call dein#install()
+endif
+filetype plugin indent on
 
 colorscheme hybrid
 
@@ -114,9 +95,6 @@ let g:neocomplcache_dictionary_filetype_lists = {'php' : '.vim/dict/php.dict'}
 "タブで補完候補の選択を行う
 inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
-
-filetype plugin indent on
-filetype indent on
 
 "起動メッセージを表示しない
 set shortmess+=I
